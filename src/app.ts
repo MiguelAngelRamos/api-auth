@@ -19,4 +19,5 @@ app.use(express.json());
 container(app);
 
 //* cargar los controladores
+
 export { app };
