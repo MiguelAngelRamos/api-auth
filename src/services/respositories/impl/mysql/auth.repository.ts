@@ -4,6 +4,7 @@ import SHA from 'sha.js';
 import jwt from 'jsonwebtoken';
 import { IAuthRepository } from '../../interfaces/IAuthRepository';
 import { IUserCreateDto } from "../../../../dtos/user.dto";
+import { ApplicationException } from '../../../../common/exceptions/application.exception';
 
 export class AuthMySQLRepository implements IAuthRepository {
 
@@ -32,9 +33,7 @@ export class AuthMySQLRepository implements IAuthRepository {
       throw new Error('Secret key is not defined');
     }
     // 'invalid user credentials supplied'
-    //* throw new 
-
-    //* return 'esperar';
+    throw new ApplicationException('invalid user credentials supplied');
   }
 
   public async create(user: IUserCreateDto): Promise<void> {
