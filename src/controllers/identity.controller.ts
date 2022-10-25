@@ -16,7 +16,7 @@ export default class IdentityController extends ErrorBaseController {
   public async index(req: Request, res: Response) {
     try {
       const result = await this.identityService.authenticate(req.body.email, req.body.password);
-
+      console.log(result);
       //* el token 
       res.send(result);
     } catch (error) {
@@ -32,6 +32,8 @@ export default class IdentityController extends ErrorBaseController {
         email: req.body.email,
         password: req.body.password
       } as IUserCreateDto)
+      res.status(201);
+      res.send();
     } catch (error) {
       this.handleException(error, res);
     }
