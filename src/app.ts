@@ -19,5 +19,6 @@ app.use(express.json());
 container(app);
 
 //* cargar los controladores
-
+app.use(loadControllers('controllers/*.ts',
+{cwd: __dirname }))
 export { app };
